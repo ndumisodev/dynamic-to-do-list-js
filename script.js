@@ -22,25 +22,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Create Remove button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remove';
-        removeBtn.classList.add('remove-btn'); // ✅ Required by test
-
-        // On click, remove task
+        removeBtn.classList.add('remove-btn'); 
         removeBtn.onclick = function () {
             taskList.removeChild(listItem);
         };
 
-        // Append button to list item, then list item to list
         listItem.appendChild(removeBtn);
         taskList.appendChild(listItem);
 
-        // Clear input field
         taskInput.value = '';
     }
 
-    // Add task when button is clicked
     addButton.addEventListener('click', addTask);
 
-    // ✅ Add task on Enter key press using 'keypress' (test requirement)
     taskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             addTask();
