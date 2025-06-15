@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
-    // Load tasks from Local Storage on page load
     loadTasks();
 
     // Function to add a task (with optional saving)
     function addTask(taskText, save = true) {
-        // If triggered by user input, trim and validate
+     
         if (save) {
             taskText = taskInput.value.trim();
             if (taskText === '') {
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
             storedTasks.push(taskText);
             localStorage.setItem('tasks', JSON.stringify(storedTasks));
-            taskInput.value = ''; // Clear input after adding
+            taskInput.value = ''; 
         }
     }
 
@@ -59,10 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('tasks', JSON.stringify(updatedTasks));
     }
 
-    // Add task on button click
     addButton.addEventListener('click', () => addTask());
 
-    // Add task on 'Enter' key press (keypress event required)
     taskInput.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             addTask();
