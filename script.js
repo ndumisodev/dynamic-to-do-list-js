@@ -1,3 +1,4 @@
+
 // Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     // Select DOM elements
@@ -18,7 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create a new list item
         const task = document.createElement('li');
-        task.textContent = taskText;
+
+        // Create a span for task text
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = taskText;
 
         // Create a remove button
         const removeButton = document.createElement('button');
@@ -30,8 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
             taskList.removeChild(task);
         };
 
-        // Append remove button to task and task to task list
+        // Append task text and remove button to task
+        task.appendChild(taskSpan);
         task.appendChild(removeButton);
+
+        // Append task to task list
         taskList.appendChild(task);
 
         // Clear the task input field
@@ -48,3 +55,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
